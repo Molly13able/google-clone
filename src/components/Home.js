@@ -2,7 +2,43 @@ import React from 'react';
 
 import AppsIcon from '@material-ui/icons/Apps';
 import AvatarIcon from '@material-ui/core/Avatar';
-import Avatar from '@material-ui/core/Avatar';
+
+import Search from './Search';
+import styled from 'styled-components';
+
+
+const HomeContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+`
+const HeaderContainer = styled.div`
+    display:flex;
+    justify-content: space-between;
+    padding: 20px 30px;
+    align-items: center;
+`
+const Header = styled.div`
+    display: flex;
+    align-items: center;
+    p{
+        margin-right:20px:
+        font-size:15px:
+    }
+    .left-margin{
+        margin-left: 20px;
+    }
+`
+const BodyCOntainer = styled.div`
+    flex: 1;
+    display: flex;
+    margin-top:10%;
+    flex-direction: column;
+    img {
+        object-fit: contain;
+        height: 100px;
+    }
+`
 
 const Home = () => {
     return (
@@ -22,6 +58,7 @@ const Home = () => {
             <div className="body">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/320px-Google_2015_logo.svg.png" alt="google-logo" />
             </div>
+            <Search />
         </div> 
     )
 };
