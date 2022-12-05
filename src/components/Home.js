@@ -22,17 +22,17 @@ const Header = styled.div`
     display: flex;
     align-items: center;
     p{
-        margin-right:20px:
-        font-size:15px:
+        margin-right: 20px;
+        font-size: 15px;
     }
     .left-margin{
         margin-left: 20px;
     }
 `
-const BodyCOntainer = styled.div`
+const BodyContainer = styled.div`
     flex: 1;
     display: flex;
-    margin-top:10%;
+    margin-top: 10%;
     flex-direction: column;
     img {
         object-fit: contain;

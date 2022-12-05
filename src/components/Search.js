@@ -1,3 +1,4 @@
+import React from 'react';
 import SearchIcon from '@material-ui/icons/Search';
 import MicIcon from '@material-ui/icons/Mic';
 import { Button } from '@material-ui/core';
@@ -26,7 +27,7 @@ const SearchInput = styled.div`
     .searchicon {
         color:gray;
     }
-`
+`;
 const SearchButton = styled.div`
     maring-top: 20px;
     display: flex;
@@ -43,7 +44,7 @@ const SearchButton = styled.div`
             border: 1px solid #c6c6c6;
         }
     }
-`
+`;
 const Search = ({ hide }) => {
     const [input, setInput] = useState("");
 
