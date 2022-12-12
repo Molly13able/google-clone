@@ -13,8 +13,8 @@ const SearchInput = styled.div`
     height: 30px;
     padding: 10px 15px;
     width: 500px;
-    margin:0px auto;
-    border-radius: 999px;
+    margin: 0px auto;
+    border-radius:999px;
     input {
         flex: 1;
         padding: 8px 13px;
@@ -26,8 +26,9 @@ const SearchInput = styled.div`
         color:gray;
     }
 `;
+
 const SearchButton = styled.div`
-    maring-top: 20px;
+    margin-top: 20px;
     display: flex;
     justify-content: center;
     button {
@@ -35,7 +36,7 @@ const SearchButton = styled.div`
         background: #f8f8f8 !important;
         border: 1px solid white;
         text-transform: inherit;
-        &:hover {
+        &:hover{
             margin: 5px;
             background: #f8f8f8 !important;
             color: #000;
@@ -43,6 +44,7 @@ const SearchButton = styled.div`
         }
     }
 `;
+
 const Search = ({ hide }) => {
     const [input, setInput] = useState("");
 
@@ -51,8 +53,7 @@ const Search = ({ hide }) => {
             <SearchInput>
                 <SearchIcon 
                 className='searchicon' />
-                <input 
-                value={input} onChange={e=>setInput(e.target.value)} />
+                <input value={input} onChange={e=>setInput(e.target.value)} />
                 <MicIcon />
             </SearchInput>
             {

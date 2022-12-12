@@ -11,13 +11,15 @@ const HomeContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	height: 100vh;
-`
+`;
+
 const HeaderContainer = styled.div`
-    display:flex;
+    display: flex;
     justify-content: space-between;
     padding: 20px 30px;
     align-items: center;
-`
+`;
+
 const Header = styled.div`
     display: flex;
     align-items: center;
@@ -28,7 +30,8 @@ const Header = styled.div`
     .left-margin{
         margin-left: 20px;
     }
-`
+`;
+
 const BodyContainer = styled.div`
     flex: 1;
     display: flex;
@@ -39,7 +42,7 @@ const BodyContainer = styled.div`
         height: 100px;
         margin-bottom: 5px;
     }
-`
+`;
 
 const Home = () => {
     return (
@@ -52,18 +55,19 @@ const Home = () => {
                 <Header>
                     <p>Gmail</p>
                     <p>Images</p>
-                    <AppsIcon />
-                    <AvatarIcon />
+                    <AppsIcon className="left-margin"/>
+                    <AvatarIcon className="left-margin"/>
                 </Header>
             </HeaderContainer>
             <BodyContainer>
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/320px-Google_2015_logo.svg.png" alt="google-logo" />
+            
             <div>
                 <Search />
             </div>
             </BodyContainer>
         </HomeContainer> 
     )
-};
+}
 
 export default Home;

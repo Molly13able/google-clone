@@ -7,6 +7,7 @@ import SearchPage from './components/SearchPage';
 
 
 export default function App() {
+
   return (
     <div>
       <Router>
@@ -19,7 +20,7 @@ export default function App() {
           </Route>
         </Routes>
       </Router>
-    <Home />
+      <Home />
     </div>
   );
 }

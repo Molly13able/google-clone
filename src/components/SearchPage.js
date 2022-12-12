@@ -22,11 +22,11 @@ const SearchPageHeader = styled.div`
         height: 50px;
         margin-right: 50px;
     }
-`
+`;
 
 const SearchPageOptions = styled.div`
     display: flex;
-    align-item: center;
+    align-items: center;
     color: gray;
     margin-top: 30px;
     a {
@@ -34,26 +34,26 @@ const SearchPageOptions = styled.div`
         color: gray;
         margin-left: 5px;
     }
-`
+`;
 
 const Options = styled.div`
     margin-left: ${props => props.right ? "80px" : "0px"};
     display: flex;
     align-items: center;
-`
+`;
 
 const SearchPageOption = styled.div`
     display: flex;
     align-items: center;
     margin-right: 20px;
-`
+`;
 
 const SearchPage = () => {
     return (
         <div>
             <SearchPageHeader>
                 <Link to="/">
-                    <img src="https://upload.wikimdeia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/320px-Google_2015_logo.svg.png" alt="google-logo" />
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Google_2011_logo.png/640px-Google_2011_logo.png" />
                 </Link>
                 <div>
                     <Search hide />
@@ -62,9 +62,9 @@ const SearchPage = () => {
                             <SearchPageOption>
                                 <SearchIcon /><Link to="/all">All</Link>
                             </SearchPageOption>
-                            <SearchPageHeader>
+                            <SearchPageOption>
                                 <DescriptionIcon /><Link to="/all">News</Link>
-                            </SearchPageHeader>
+                            </SearchPageOption>
                             <SearchPageOption>
                                 <ImageIcon /><Link to="/all">Images</Link>
                             </SearchPageOption>
@@ -91,6 +91,6 @@ const SearchPage = () => {
             </SearchPageHeader>
         </div>
     )
-}
+};
 
 export default SearchPage;
