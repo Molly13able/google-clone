@@ -8,6 +8,8 @@ import RoomIcon from "@material-ui/icons/Room";
 import LocalOfferIcon from "@material-ui/icons/LocalOffer";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import styled from 'styled-components';
+import { useStateValue } from '../SearchProvider';
+import useGoogle from '../useGoogle';
 
 const SearchPageHeader = styled.div`
     display: flex;
@@ -48,7 +50,50 @@ const SearchPageOption = styled.div`
     margin-right: 20px;
 `;
 
+const SearchPageResults = styled.div`
+    max-width: 650px;
+    margin-top: 20px;
+    margin-left: 240px;
+    margin-bottom: 100px;
+    .resultCount {
+        color:#70757a;
+        font-size: 14px;
+    }
+    .result {
+        margin: 40px 0px;
+    }
+`
+const SearchPageLink = styled.a`
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+    margin-bottom: 3px;
+    img {
+        height: 50px;
+        width: 50px; 
+        object-fit: contain;
+        margin-right: 10px;
+    }
+`
+const SearchPageResultTitle = styled.a`
+    text-decoration: none;
+    h2 {
+        font-weight: 500;
+    }
+    &:hover{
+        text-decoration: underline;
+    }
+`
+const SearchPageResultDesc = styled.p`
+    margin-top: 10px;
+`
+
 const SearchPage = () => {
+    const [ {term} ] = useStateValue();
+    const { data } = useGoogle(term);
+    console.log(data);
+
     return (
         <div>
             <SearchPageHeader>
@@ -89,6 +134,27 @@ const SearchPage = () => {
                     </SearchPageOptions>
                 </div>
             </SearchPageHeader>
+            {term && (
+                <SearchPageResults>
+                    <p className="resultCount">
+                        About {data?.searchInformation.formattedTotalResults} result ({data?.searchInformation.formattedSearchTime}) for {term}
+                    </p>
+                    {data?.items.map(item => (
+                        <div className="result">
+                            <SearchPageLink href={term.link}>
+                                {item.pagemap?.cse_image?.length > 0 && item.pagemap?.cse_image[0]?.src && (
+                                <img src={item.pagemap?.cse_image[0]?.src} alt=""/>
+                                )}
+                                {item.displayLink}
+                            </SearchPageLink>
+                            <SearchPageResultTitle href={item.link}>
+                                <h2>{item.title}</h2>
+                            </SearchPageResultTitle>
+                            <SearchPageResultDeesc>{item.snippet}</SearchPageResultDeesc>
+                        </div>
+                    ))}
+                </SearchPageResults>
+            )}
         </div>
     )
 };

@@ -3,8 +3,10 @@ import React from 'react';
 import MicIcon from '@material-ui/icons/Mic';
 import { Button } from '@material-ui/core';
 import styled from 'styled-components';
-//import { Search } from '@material-ui/icons';
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { useStateValue } from '../SearchProvider.js';
+import { SET_SEARCH_TERM } from '../types.js';
 
 const SearchInput = styled.div`
     display: flex;
@@ -47,9 +49,21 @@ const SearchButton = styled.div`
 
 const Search = ({ hide }) => {
     const [input, setInput] = useState("");
+    const history = useHistory();
+    const [{}, dispatch] = useStateValue();
+
+    const search = e => {
+        e.preventDeafult();
+        dispatch({
+            type: SET_SEARCH_TERM,
+            term: input
+        })
+        console.log(input);
+        history.push("/search");
+    }
 
     return (
-        <form>
+        <form onSubmit={search}>
             <SearchInput>
                 <SearchIcon 
                 className='searchicon' />
